@@ -40,15 +40,10 @@ jobs:
       env:
         Configuration: ${{ matrix.configuration }}
 
-    - name: Release and upload assets
-        uses: softprops/action-gh-release@v1
+    - uses: release-drafter/release-drafter@v5
         with:
-          name: "v1.1"
-          tag_name: "v1.1"
-          draft: false
-          prerelease: false
-          files: |
-            ./publish/*
+          # (Optional) specify config name to use, relative to .github/. Default: release-drafter.yml
+          # config-name: my-config.yml
         env:
           GITHUB_TOKEN: ${{ secrets.vv }}
  
