@@ -42,7 +42,7 @@ jobs:
     # D:\a\AKV\AKV\AKV\bin\Release\    
     - name: pack
       shell: bash
-      run:  7z a -tzip "AKV.zip" ".\bin\Release\*"
+      run:  7z a -tzip "AKV.zip" "D:\a\AKV\AKV\AKV\bin\Release\*"
 
 
      
