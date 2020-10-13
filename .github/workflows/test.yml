@@ -42,7 +42,7 @@ jobs:
         
     - name: Build
       shell: bash
-      run:  7z a -tzip "AKV.zip" "D:\a\AKV\AKV\AKV\bin\Release\"
+      run:  7z a -tzip "AKV-${release_name}.zip" "./${release_name}/*"
 
 
      
