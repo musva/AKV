@@ -42,14 +42,15 @@ jobs:
     # D:\a\AKV\AKV\AKV\bin\Release\    
     - name: pack
       shell: bash
-      run:  7z a -tzip "D:\a\AKV\AKV\AKV\bin\AKV.zip" "D:\a\AKV\AKV\AKV\bin\Release\*"
+      run:  7z a -tzip "AKV.zip" "D:\a\AKV\AKV\AKV\bin\Release\*"
       
     - name: release 
       uses: "marvinpinto/action-automatic-releases@latest"
       with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: "v1.1.1"
+          automatic_release_tag: "v1.1.2"
           prerelease: false
-          title: "v1.1.1"
-          files: D:\a\AKV\AKV\AKV\bin\AKV.zip
+          title: "v1.1.2"
+          files:  |
+            AKV.zip
      
