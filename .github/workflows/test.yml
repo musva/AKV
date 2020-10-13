@@ -53,12 +53,4 @@ jobs:
           # Delete output directory
           rm -r "$release_name"
 
-      # step7: create release
-      - name: release
-        uses: softprops/action-gh-release@v1
-        if: startsWith(github.ref, 'refs/tags/')
-        with:
-          files: "app**"
-        env:
-          GITHUB_TOKEN: ${{ secrets.vv }}
- 
+     
