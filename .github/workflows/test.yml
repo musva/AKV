@@ -40,19 +40,25 @@ jobs:
       env:
         Configuration: ${{ matrix.configuration }}
         
-        # step6: upload artifacts
-      - name: upload artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: ${{ matrix.os }}
-          path: Release
+    - name: Build
+      shell: bash
+      run: |
+          # Pack files
+          if [ "${{ matrix.target }}" == "win-x64" ]; then
+            # Pack to zip for Windows
+            7z a -tzip "${release_name}.zip" "./${release_name}/*"
+          else
+          tar czvf "${release_name}.tar.gz" "$release_name"
+          fi
+          # Delete output directory
+          rm -r "$release_name"
 
       # step7: create release
       - name: release
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
         with:
-          files: "Release/**"
+          files: "app**"
         env:
           GITHUB_TOKEN: ${{ secrets.vv }}
  
