@@ -47,8 +47,9 @@ jobs:
 
     - name: Publish
         uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
         with:
-          files: "D:\a\AKV\AKV\AKV\bin\AKV.zip"
+          files: "D:\a\AKV\AKV\AKV\bin\AKV.zips"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
      
