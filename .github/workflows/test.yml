@@ -43,6 +43,13 @@ jobs:
     - name: pack
       shell: bash
       run:  7z a -tzip "AKV.zip" "D:\a\AKV\AKV\AKV\bin\Release\*"
+      
+    - name: Publish
+        uses: softprops/action-gh-release@v1
+        with:
+          files: "abc"
+        env:
+          GITHUB_TOKEN: ${{ secrets.vv }}
 
 
      
