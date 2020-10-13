@@ -42,6 +42,8 @@ jobs:
 
     - name: Create a Release
       uses: actions/create-release@v1.1.4
+      env:
+          GITHUB_TOKEN: ${{ secrets.vv }}
       with:
          tag_name: v1.1.1
          release_name: v1.1.1
