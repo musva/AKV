@@ -39,8 +39,8 @@ jobs:
       run: msbuild /p:Configuration=$env:Configuration
       env:
         Configuration: ${{ matrix.configuration }}
-
-    - uses: release-drafter/release-drafter@v5
+    - name: release-drafter
+      uses: release-drafter/release-drafter@v5
         with:
           # (Optional) specify config name to use, relative to .github/. Default: release-drafter.yml
           # config-name: my-config.yml
