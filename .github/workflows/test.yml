@@ -27,7 +27,7 @@ jobs:
     - name: Setup NuGet
       uses: nuget/setup-nuget@v1
       with:
-        nuget-api-key: ${{ secrets.vv }}
+        nuget-api-key: $${{ secrets.GITHUB_TOKEN }}
         nuget-version: '5.x'
 
     # 还原 NuGet 包
@@ -48,9 +48,9 @@ jobs:
       uses: "marvinpinto/action-automatic-releases@latest"
       with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: "v1.1.5"
+          automatic_release_tag: "v1.1.6"
           prerelease: false
-          title: "v1.1.5"
+          title: "v1.1.6"
           files:  |
             AKV.zip
      
