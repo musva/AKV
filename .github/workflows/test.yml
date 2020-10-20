@@ -41,17 +41,16 @@ jobs:
         Configuration: ${{ matrix.configuration }}
     # D:\a\AKV\AKV\AKV\bin\Release\    
     - name: Package
-      shell: bash
       run:  7z a -tzip "AKV.zip" "./${release_name}/*"
+      
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        repo_token: "${{ secrets.GITHUB_TOKEN }}"
-        tag_name: v1.2
-        release_name: Release v1.2
+        tag_name: v1.3
+        release_name: Release v1.3
         body: |
             Changes in this Release
             - First Change
@@ -61,12 +60,11 @@ jobs:
           
     - name: Upload Release Asset
       id: upload-release-asset 
-      uses: actions/upload-release-asset@v1
+      uses: actions/upload-release-asset@v1.0.2
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        repo_token: "${{ secrets.GITHUB_TOKEN }}"
         upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-        asset_path: ./AKV.zip
+        asset_path: AKV.zip
         asset_name: AKV.zip
         asset_content_type: application/zip
