@@ -49,14 +49,14 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: v1.9
-        release_name: Release v1.9
+        tag_name: v2.0
+        release_name: Release v2.0
         body: |
             Changes in this Release
             - First Change
-             - 1
+              - 1
             - Second Change
-             - 2
+              - 2
         draft: false
         prerelease: false
           
