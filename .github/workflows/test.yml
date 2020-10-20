@@ -41,7 +41,7 @@ jobs:
         Configuration: ${{ matrix.configuration }}
     # D:\a\AKV\AKV\AKV\bin\Release\    
     - name: Package
-      run:  7z a -tzip "AKV.zip" "${{github.action_path}}"
+      run:  7z a -tzip "AKV.zip" "D:\a\AKV\AKV\AKV\bin\Release\*"
       
     - name: Create Release
       id: create_release
@@ -49,8 +49,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: v1.4
-        release_name: Release v1.4
+        tag_name: v1.5
+        release_name: Release v1.5
         body: |
             Changes in this Release
             - First Change
