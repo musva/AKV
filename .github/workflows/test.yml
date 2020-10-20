@@ -41,7 +41,7 @@ jobs:
         Configuration: ${{ matrix.configuration }}
     # D:\a\AKV\AKV\AKV\bin\Release\    
     - name: Package
-      run:  7z a -tzip "AKV.zip" "./Release/*"
+      run:  7z a -tzip "AKV.zip" ".\bin\Release\*"
       
     - name: Create Release
       id: create_release
