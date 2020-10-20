@@ -42,7 +42,7 @@ jobs:
     # D:\a\AKV\AKV\AKV\bin\Release\    
     - name: Package
       shell: bash
-      run:  7z a -tzip "AKV.zip" "./${release_name}/*
+      run:  7z a -tzip "AKV.zip" "./${release_name}/*"
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
@@ -50,8 +50,8 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
-        tag_name: v1.111
-        release_name: Release v1.111
+        tag_name: v1.2
+        release_name: Release v1.2
         body: |
             Changes in this Release
             - First Change
