@@ -42,8 +42,7 @@ jobs:
     # D:\a\AKV\AKV\AKV\bin\Release\    
     - name: Package
       shell: bash
-      run:  7z a -tzip "AKV.zip" "D:\a\AKV\AKV\AKV\bin\Release\*"
-      
+      run:  7z a -tzip "AKV.zip" "./${release_name}/*
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
@@ -68,6 +67,6 @@ jobs:
       with:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
         upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-        asset_path: ./AKV.zip.zip
+        asset_path: ./AKV.zip
         asset_name: AKV.zip
         asset_content_type: application/zip
