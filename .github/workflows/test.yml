@@ -41,7 +41,7 @@ jobs:
       run:  7z a -tzip "AKV.zip" "${{github.workspace}}\AKV\bin\Release\*"
 
     - name: Get latest release version number
-      id: get_version
+      id: get_version11
       uses: battila7/get-version-action@v2
       
     - name: Get the version
