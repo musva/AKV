@@ -39,11 +39,10 @@ jobs:
  
     - name: Package
       run:  7z a -tzip "AKV.zip" "${{github.workspace}}\AKV\bin\Release\*"
-      
-    - name: Get the version
-      id: get_version
-      run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
 
+    - name: Get latest release version number
+      id: get_version
+      uses: battila7/get-version-action@v2
 
     - name: Create Release
       id: create_release
@@ -51,8 +50,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: ${{ steps.get_version.outputs.VERSION }}
-        release_name: ${{ steps.get_version.outputs.VERSION }}
+        tag_name: ${{ steps.get_version.outputs.version }}
+        release_name: ${{ steps.get_version.outputs.version }}
         body: |
             Changes in this Release
             - First Change
