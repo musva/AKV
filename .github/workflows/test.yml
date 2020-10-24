@@ -2,7 +2,6 @@ name: .NET Build & Release
 
 on:
   push:
-    branches: [ master ]
     tags:
     - 'v*' 
 
@@ -52,12 +51,6 @@ jobs:
       with:
         tag_name: ${{ steps.get_version.outputs.version }}
         release_name: ${{ steps.get_version.outputs.version }}
-        body: |
-            Changes in this Release
-            - First Change
-              - 1
-            - Second Change
-              - 2
         draft: false
         prerelease: false
           
