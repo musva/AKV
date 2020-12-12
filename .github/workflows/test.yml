@@ -2,9 +2,9 @@ name: .NET Build & Release
 
 on:
   push:
-    branches: [ master ]
+    branches: [ master,test ]
     tags:
-    - 'v*' 
+      - 'v*' 
 
 jobs:
 
