@@ -14,7 +14,7 @@
         <WrapPanel HorizontalAlignment="Left" Height="422" Margin="44,0,0,0" VerticalAlignment="Top" Width="756">
             <ComboBox Width="120" x:Name="cb1" Height="32" IsEditable="False"
             IsReadOnly="False" SelectionChanged="cb1_SelectionChanged"/>
-            <Button Content="Button" Height="33" Width="75" Click="Button_Click"/>
+            <Button Content="Button" Height="33" Width="75" Click="Button_Click" />
         </WrapPanel>
 
     </Grid>
